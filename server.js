@@ -4,13 +4,12 @@ const port = 5000;
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  let data = {
-    nama: "hadi",
-    alamat: "blgarut",
-  };
+app.get("/", function (req, res) {
+  res.sendFile("./index.html", { root: __dirname });
+});
 
-  res.send(data);
+app.get("/about", function (req, res) {
+  res.sendFile("./about.html", { root: __dirname });
 });
 
 app.listen(port, () => {
